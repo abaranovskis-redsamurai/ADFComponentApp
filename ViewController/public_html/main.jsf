@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:customcomplib="/customCompLib">
+  <af:document title="main.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <customcomplib:customComp id="cc1" listBinding="#{bindings.LocationId}" mainBean="#{backingBeanScope.MainBean}"/>
+    </af:form>
+  </af:document>
+</f:view>

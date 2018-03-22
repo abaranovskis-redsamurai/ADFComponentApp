@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:componentDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" componentVar="comp" definition="private"
+                 xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>customComp</afc:display-name>
+            <afc:attribute>
+                <afc:attribute-name>listBinding</afc:attribute-name>
+                <afc:attribute-class>oracle.jbo.uicli.binding.JUCtrlListBinding</afc:attribute-class>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>mainBean</afc:attribute-name>
+                <afc:attribute-class>com.redsamurai.components.view.beans.ComponentBean</afc:attribute-class>
+            </afc:attribute>
+            <afc:component-extension>
+                <afc:component-tag-namespace>component</afc:component-tag-namespace>
+                <afc:component-taglib-uri>/customCompLib</afc:component-taglib-uri>
+            </afc:component-extension>
+        </afc:component>
+    </af:xmlContent>
+    <af:toolbar id="dc_t1">
+        <af:selectOneChoice value="#{attrs.listBinding.inputValue}" label="#{attrs.listBinding.label}"
+                            required="#{attrs.listBinding.hints.mandatory}"
+                            shortDesc="#{attrs.listBinding.hints.tooltip}" id="dc_soc1">
+            <f:selectItems value="#{attrs.listBinding.items}" id="si1"/>
+            <f:validator binding="#{attrs.listBinding.validator}"/>
+        </af:selectOneChoice>
+        <af:button text="Print" id="dc_b1" actionListener="#{attrs.mainBean.processSelection}"/>
+    </af:toolbar>
+</af:componentDef>
